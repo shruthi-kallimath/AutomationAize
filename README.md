@@ -38,7 +38,7 @@ for an instance,Chrome: https://sites.google.com/a/chromium.org/chromedriver/dow
 
 **Pytest Framework:**
 
-pytest framework has been used to write tests for the web application and the same can be viewed in test_automation.py module.
+pytest framework has been used to write tests for the web application and the same can be viewed in test_automation.py module and test_petstore.py module.
 
 **Reports Generation:**
 
@@ -47,5 +47,5 @@ Simple html reports have been used to generate reports using commands -v --html=
 **Commands to run the tests:**
 
 1. Open terminal/command prompt 
-2. Execute:pytest test_automation.py or 
+2. Execute:pytest test_automation.py or pytest test_petstore.py
 3. Execute with report: pytest -v --html=report.html.
