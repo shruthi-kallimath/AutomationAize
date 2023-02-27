@@ -43,3 +43,9 @@ pytest framework has been used to write tests for the web application and the sa
 **Reports Generation:**
 
 Simple html reports have been used to generate reports using commands -v --html=report.html
+
+**Commands to run the tests:**
+
+1. Open terminal/command prompt 
+2. Execute:pytest test_automation.py or 
+3. Execute with report: pytest -v --html=report.html.
