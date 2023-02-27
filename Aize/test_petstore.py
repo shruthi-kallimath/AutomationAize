@@ -28,27 +28,46 @@ def test_create_user():
 
 # Test case to get details of the new user
 def test_get_user_details():
-    # User ID of the newly created user
+    # Username of the newly created user
     user_name = "testuser"
+    expected_user = {
+        "id": 1,
+        "username": "testuser",
+        "firstName": "Test",
+        "lastName": "User",
+        "email": "testuser@example.com",
+        "password": "password",
+        "phone": "1234567890",
+        "userStatus": 1
+    }
 
     # Make GET request to get user details
     response = requests.get(f"{url}/user/{user_name}")
 
     # Check response status code
     assert response.status_code == 200
-    json_data = json.loads(response.content)
-    assert json_data["lastName"] == "User"
+    response_data = json.loads(response.content)
+    assert response_data == expected_user
 
 # Test case to delete the new user
 def test_delete_user():
-    # User ID of the newly created user
+    # Username of the newly created user
     user_name = "testuser"
+
+    expected_response = {
+    "code": 200,
+    "type": "unknown",
+    "message": "testuser"
+     }
 
     # Make DELETE request to delete user
     response = requests.delete(f"{url}/user/{user_name}")
 
     # Check response status code
     assert response.status_code == 200
+    response_data = json.loads(response.content)
+    assert response_data == expected_response
+
 
 
 if __name__ == "__main__":
