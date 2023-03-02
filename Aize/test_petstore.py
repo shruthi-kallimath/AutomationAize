@@ -2,6 +2,7 @@ import requests
 import pytest
 import json
 
+
 # API endpoint
 url = "https://petstore.swagger.io/v2"
 
@@ -69,6 +70,24 @@ def test_delete_user():
     assert response_data == expected_response
 
 
+
+
+# Negative Test case to check non existence of a user
+def test_get_non_existing_user():
+    user_name = "testuser"
+    expected_user = {
+    "code": 1,
+    "type": "error",
+    "message": "User not found"
+}
+
+    # Make GET request to get user details
+    response = requests.get(f"{url}/user/{user_name}")
+
+    # Check response status code
+    assert response.status_code == 404
+    response_data = json.loads(response.content)
+    assert response_data == expected_user
 
 if __name__ == "__main__":
     pytest.main(["-v", '--html=report.html'])
